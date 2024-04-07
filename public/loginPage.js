@@ -3,11 +3,11 @@
 const formForUser = new UserForm();
 
 formForUser.loginFormCallback = function (data) {
-     (data, response => {
+     ApiConnector.login(data, response => {
         if (response.success) {
             location.reload();
         } else {
-            formForUser.setLoginErrorMessage('Ошибка при авторизации!!!')
+            formForUser.setLoginErrorMessage(response.error)
         }
     });
 };
@@ -17,7 +17,7 @@ formForUser.registerFormCallback = function (data) {
         if (response.success) {
             location.reload();
         } else {
-            formForUser.setRegisterErrorMessage('Ошибка при регистрации!!!')
+            formForUser.setRegisterErrorMessage(response.error)
         }
     });
 };

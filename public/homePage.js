@@ -33,7 +33,7 @@ userMoneyManager.addMoneyCallback = function (data) {
       ProfileWidget.showProfile(response.data);
       userMoneyManager.setMessage(true, 'Баланс пополнен')
     } else {
-      userMoneyManager.setMessage(false, 'Что то пошло не так =(')
+      userMoneyManager.setMessage(false, response.error)
     }
   })
 };
@@ -44,7 +44,7 @@ userMoneyManager.conversionMoneyCallback = function (data) {
       ProfileWidget.showProfile(response.data);
       userMoneyManager.setMessage(true, 'Конвертация удалась')
     } else {
-      userMoneyManager.setMessage(false, 'Конвертация не удалась')
+      userMoneyManager.setMessage(false, response.error)
     }
   })
 };
@@ -55,7 +55,7 @@ userMoneyManager.sendMoneyCallback = function (data) {
       ProfileWidget.showProfile(response.data);
       userMoneyManager.setMessage(true, 'Успешный перевод')
     } else {
-      userMoneyManager.setMessage(false, 'Перевод не удался')
+      userMoneyManager.setMessage(false, response.error)
     }
   })
 };
@@ -78,7 +78,7 @@ userFavoritesWidget.addUserCallback = function (data) {
       userMoneyManager.updateUsersList(response.data);
       userFavoritesWidget.setMessage(true, 'Пользователь добавлен')
     } else {
-      userFavoritesWidget.setMessage(false, 'Не удалось добавить пользователя')
+      userFavoritesWidget.setMessage(false, response.error)
     }
   })
 };
@@ -91,7 +91,7 @@ userFavoritesWidget.removeUserCallback = function (data) {
       userMoneyManager.updateUsersList(response.data);
       userFavoritesWidget.setMessage(true, 'Пользователь удален')
     } else {
-      userFavoritesWidget.setMessage(false, 'Не удалось удалить пользователя')
+      userFavoritesWidget.setMessage(false, response.error)
     }
   })
 };
